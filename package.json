@@ -9,7 +9,8 @@
     "lint-fix": "tslint -c tslint.json -p tsconfig.json --fix ./src/ts/*.tsx",
     "precommit": "lint-staged",
     "test": "jest",
-    "start": "webpack-serve --config webpack.config.js"
+    "start": "webpack-serve --config webpack.config.js",
+    "sw:generate": "workbox generateSW workbox-config.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -64,6 +65,7 @@
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-serve": "^2.0.2"
+    "webpack-serve": "^2.0.2",
+    "workbox-cli": "^3.4.1"
   }
 }
