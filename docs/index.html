@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
     <meta name="theme-color" content="#000000">
 	<meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0'>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/img/snower-192.png">
-	<link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="./img/snower-192.png">
+	<link rel="manifest" href="./manifest.json">
 	<title>snower</title>
 </head>
 <body>
@@ -23,11 +23,11 @@
         );
         if (!isLocalhost) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/sw.js");
+                navigator.serviceWorker.register("./sw.js");
             });
         }
     }
 	</script>
-	<script src="index.js"></script>
+	<script src="./index.js"></script>
 </body>
 </html>
