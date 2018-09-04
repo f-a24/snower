@@ -12,7 +12,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import { stances, grabs, tricks } from './Trick';
 
 const StyledListItem = styled(ListItem)`
@@ -48,12 +49,17 @@ type Props = Outter & State & Updaters;
 const component: React.SFC<Props> = (props: Props) => (
   <List>
   {['stance', 'trick', 'grab'].map((t, i) => (
-    <StyledListItem>
-    <Typography>{props[t].name}</Typography>
+    <StyledListItem key={t}>
+    <Select
+      value={props[t].name}
+      onChange={ e => props.trickUpdate({[t]: Object.assign({}, props[t], {name: e.target.value})}) }
+    >
+    { [stances, tricks, grabs][i].map(v => <MenuItem key={v} value={v}>{v}</MenuItem>) }
+    </Select>
     <FormControlLabel
     control={
       <Checkbox
-        onChange={ e => { props.trickUpdate({ [t]: { name: props[t].name, fix: e } }) } } />
+        onChange={ e => { props.trickUpdate({ [t]: { name: props[t].name, fix: e.target.checked } }) } } />
       }
     label="固定"
             />
