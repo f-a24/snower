@@ -1,5 +1,5 @@
 module.exports = {
-  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
+  mode: 'production',
   entry: `${__dirname}/src/app/index.tsx`,
   output: {
     path: `${__dirname}/docs`,
@@ -28,9 +28,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  serve: {
-    content: 'docs/',
+  devServer: {
+    contentBase: `${__dirname}/docs`,
+    port: 3000,
+    hot: true,
     open: true,
-    port: 3000
   }
 };
